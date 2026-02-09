@@ -75,7 +75,6 @@ extras_require = {
     'common-only': req_file('requirements_common.txt'),
     # domain packages
     'asr-only': req_file("requirements_asr.txt"),
-    'nlp-only': req_file("requirements_nlp.txt"),
     'tts': req_file("requirements_tts.txt"),
     'slu': req_file("requirements_slu.txt"),
     'multimodal-only': req_file("requirements_multimodal.txt"),
@@ -108,14 +107,6 @@ extras_require['asr'] = list(
         extras_require['common'],
     )
 )
-extras_require['nlp'] = extras_require['nlp-only']
-extras_require['nlp'] = list(
-    chain(
-        extras_require['nlp'],
-        extras_require['common'],
-    )
-)
-extras_require['llm'] = extras_require['nlp']
 extras_require['tts'] = list(
     chain(
         extras_require['tts'],
@@ -127,7 +118,6 @@ extras_require['multimodal'] = extras_require['multimodal-only']
 extras_require['multimodal'] = list(
     chain(
         extras_require['multimodal'],
-        extras_require['nlp'],
         extras_require['common'],
     )
 )
